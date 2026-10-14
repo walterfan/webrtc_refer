@@ -1,0 +1,17 @@
+@startuml
+hide empty description
+
+[*] --> FirstReliable
+FirstReliable : Receive 101-199 with Require: 100rel
+FirstReliable : Save RSeq as last received
+FirstReliable --> AwaitPRACK : Create PRACK with RAck
+
+AwaitPRACK --> AwaitNext : Matching 2xx to PRACK
+AwaitPRACK --> AwaitPRACK : Same dialog ID, CSeq, RSeq\n(retransmission: discard; no new PRACK)
+
+AwaitNext --> AwaitNext : RSeq == last + 1\nprocess and PRACK
+AwaitNext --> AwaitNext : RSeq != last + 1\nMUST NOT process/PRACK; discard or cache
+AwaitNext --> Done : Final response received
+
+Done --> [*]
+@enduml

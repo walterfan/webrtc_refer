@@ -1,0 +1,29 @@
+@startmindmap
+* RFC 3262: 100rel / PRACK
+** What
+*** Reliable 101–199 responses to INVITE
+*** 100rel option tag
+** Why
+*** Progress can be lost
+*** PSTN interoperability and transaction extension
+** How
+*** UAC advertises Supported or Require
+*** UAS sends Require: 100rel + RSeq
+*** UAC sends PRACK + RAck
+*** UAS retransmits until matched
+**** Exponential backoff from T1
+**** Single outstanding response recommended
+** Ordering
+*** RSeq starts 1..2**31-1
+*** Subsequent values increment exactly one
+*** Forking needs independent transaction/dialog tracking per verified errata
+** SDP
+*** Offer/answer may use reliable 1xx and PRACK
+*** Delay INVITE 2xx when unacknowledged SDP is present
+** Risks
+*** Authenticate PRACK
+*** Do not apply to 100 Trying
+*** Check verified errata
+** Example
+*** RAck matches RSeq + CSeq method
+@endmindmap

@@ -1,0 +1,26 @@
+@startuml
+hide footbox
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+
+participant UAC
+participant Proxy
+participant UAS
+
+UAC -> Proxy: INVITE\nSupported: 100rel
+Proxy -> UAS: INVITE
+UAS --> Proxy: 183 Session Progress\nRequire: 100rel\nRSeq: N
+Proxy --> UAC: 183 Session Progress\nRequire: 100rel\nRSeq: N
+UAS --> Proxy: retransmit 183\n(T1, 2T1, 4T1, ...)
+Proxy --> UAC: retransmit 183
+UAC -> Proxy: PRACK\nRAck: N CSeq INVITE
+Proxy -> UAS: PRACK
+UAS --> Proxy: 200 OK (PRACK)
+Proxy --> UAC: 200 OK (PRACK)
+UAS --> UAC: 200 OK (INVITE)\n(after required PRACKs)
+
+note over UAC,UAS
+PRACK acknowledges one reliable 1xx response;
+it is a normal in-dialog SIP request with its own response.
+end note
+@enduml
