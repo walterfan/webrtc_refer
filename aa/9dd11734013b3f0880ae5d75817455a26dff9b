@@ -1,0 +1,32 @@
+note/rfc3262.assets/mind-map.svg
+  s_07e3bec8767093::t_31651b1023ffd8 1
+note/rfc3262.assets/uac-ordering.puml
+  s_07e3bec8767093::t_8e4be844195528 1-17
+note/rfc3262.md
+  s_07e3bec8767093::t_e4a81f2a7a3e38 1-131,164-291
+  s_07e3bec8767093::t_917e84164a37b9 132-163
+note/rfc3262.assets/mind-map.puml
+  s_07e3bec8767093::t_8e4be844195528 1-29
+note/rfc3262.assets/uac-ordering.svg
+  s_07e3bec8767093::t_63be7f7dfec0fb 1
+note/rfc3262.assets/big-picture.puml
+  s_07e3bec8767093::t_8e4be844195528 1-26
+note/rfc3262.assets/big-picture.svg
+  s_07e3bec8767093::t_31651b1023ffd8 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "aa9dd11734013b3f0880ae5d75817455a26dff9b",
+  "prompts": {},
+  "sessions": {
+    "s_07e3bec8767093": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a0a81a-c968-7fd3-a20d-3c080c7b5c42",
+        "model": "gpt-5.6-luna"
+      },
+      "human_author": "Walter Fan <walter.fan@zoom.us>"
+    }
+  }
+}
